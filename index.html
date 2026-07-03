@@ -70,8 +70,8 @@
   .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:.55rem}
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 3px color-mix(in srgb,var(--signal) 25%,transparent)}
   .navlinks{display:flex;gap:1.6rem}
-  .navlinks a{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s}
-  .navlinks a:hover{color:var(--ink)}
+  .navlinks a{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s,text-decoration-color .2s}
+  .navlinks a:hover,.navlinks a.active{color:var(--signal);text-decoration:underline;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,var(--signal) 55%,transparent)}
   @media(max-width:680px){.navlinks{display:none}}
 
   /* ---------- hero ---------- */
@@ -121,8 +121,17 @@
 
   /* ---------- project cards ---------- */
   .cards{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
-  .card{background:var(--paper);padding:clamp(24px,3.2vw,38px);position:relative;transition:background .2s}
+  .card{background:var(--paper);padding:clamp(24px,3.2vw,38px);position:relative;transition:background .2s,box-shadow .2s}
   .card:hover{background:color-mix(in srgb,#fff 38%,var(--paper))}
+  .card--link{cursor:pointer}
+  .card--link:hover{box-shadow:inset 0 0 0 1px var(--signal)}
+  .card-wrap{display:block;color:inherit}
+  .card-stretch{position:absolute;inset:0;z-index:1;border-radius:inherit}
+  .card-stretch:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+  .card--link .ext,.card--link a.ext{position:relative;z-index:2}
+  .card-peek{margin-top:1rem;padding:.65rem .8rem;border:1px solid var(--line);background:color-mix(in srgb,var(--paper-2) 70%,#fff);
+    font-family:'IBM Plex Mono',monospace;font-size:.7rem;line-height:1.45;color:var(--ink-soft);letter-spacing:.02em;white-space:pre-wrap}
+  .card-peek .peek-cap{margin-top:.35rem;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);opacity:.85}
   .card .idx{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--ink-soft)}
   .card h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.4rem;letter-spacing:-.01em;margin:.7rem 0 .6rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
   .card h3 .ext{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--signal)}
@@ -133,6 +142,14 @@
   .tag{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
   .tag.status{color:var(--signal-deep);font-weight:500}
   @media(min-width:760px){.cards{grid-template-columns:1fr 1fr}}
+
+  /* ---------- case studies ---------- */
+  .case-study{padding-top:clamp(40px,6vw,64px);border-top:1px solid var(--line);margin-top:clamp(40px,6vw,64px)}
+  .case-study h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.4rem;letter-spacing:-.01em;margin-bottom:1rem}
+  .case-study p{color:var(--ink-soft);font-size:.97rem;max-width:60ch;margin-bottom:1rem}
+  .case-study p:last-of-type{margin-bottom:1.4rem}
+  .case-study .back{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s}
+  .case-study .back:hover{color:var(--signal)}
 
   /* ---------- experience ---------- */
   .xp{display:grid;gap:0}
@@ -184,6 +201,7 @@
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#next">Contact</a>
+      <a href="/latent-audit">Notes</a>
       <a href="https://github.com/usinani" target="_blank" rel="noopener">GitHub ↗</a>
     </nav>
   </div>
@@ -245,23 +263,30 @@
 
     <div class="cards reveal">
 
-      <article class="card">
-        <div class="idx">001</div>
-        <h3>DCAM — Dynamic Coating Application Module</h3>
-        <p class="desc">Lead engineer on an electro-mechanical module that applies protective coatings onto live power-grid conductors, deployed from a robotic base platform and UAV. Owned the full stack: embedded electronics, sensing, linear actuation and closed-loop control — concept through design-for-manufacture.</p>
-        <div class="metric"><span>360°</span> uniform coating across a <span>300 m</span> live conductor span — field trial with Hydro-Québec.</div>
-        <div class="meta">
-          <span class="tag">Physical</span>
-          <span class="tag">Embedded · Actuation · MATLAB/Simulink</span>
-          <span class="tag status">● Field-trialled · 2025</span>
-        </div>
+      <article class="card card--link">
+        <a class="card-wrap" href="#dcam">
+          <div class="idx">001</div>
+          <h3>DCAM — Dynamic Coating Application Module</h3>
+          <p class="desc">Lead engineer on an electro-mechanical module that applies protective coatings onto live power-grid conductors, deployed from a robotic base platform and UAV. Owned the full stack: embedded electronics, sensing, linear actuation and closed-loop control — concept through design-for-manufacture.</p>
+          <div class="metric"><span>360°</span> uniform coating across a <span>300 m</span> live conductor span — field trial with Hydro-Québec.</div>
+          <div class="card-peek">360° coating · 300 m live span · Hydro-Québec field trial</div>
+          <div class="meta">
+            <span class="tag">Physical</span>
+            <span class="tag">Embedded · Actuation · MATLAB/Simulink</span>
+            <span class="tag status">● Field-trialled · 2025</span>
+          </div>
+        </a>
       </article>
 
-      <article class="card">
+      <article class="card card--link">
+        <a class="card-stretch" href="https://permissioning.ai" target="_blank" rel="noopener" aria-label="Permissioning Protocol — permissioning.ai"></a>
         <div class="idx">002</div>
         <h3>Permissioning Protocol <a class="ext" href="https://permissioning.ai" target="_blank" rel="noopener">permissioning.ai ↗</a></h3>
         <p class="desc">An open standard for AI agent permissions — "robots.txt for agent actions." A neutral, declarative way for systems to state what autonomous agents may and may not do, with a one-command quickstart reproducer.</p>
         <div class="metric">Open standard · reference tooling · <span>public</span>.</div>
+        <div class="card-peek">{ "version": "0.1",
+  "default": "deny",
+  "rules": [ ... ] }</div>
         <div class="meta">
           <span class="tag">Digital · Agent infra</span>
           <span class="tag">Open standard · Tooling</span>
@@ -269,11 +294,13 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card card--link">
+        <a class="card-stretch" href="/latent-audit" aria-label="World-Model Latent Audit — read note"></a>
         <div class="idx">003</div>
         <h3>World-Model Latent Audit <a class="ext" href="/latent-audit">Read note ↗</a></h3>
         <p class="desc">A controlled study of whether learned representations actually capture what causes outcomes. Built a contract-safe harness with stored splits and per-joint consequence targets in a physics simulation, then measured how well different latents recover causally-decisive variables.</p>
         <div class="metric">Reconstruction latents <span>underperform</span> matched PCA and random projections on recovering causal variables — the gap tracks the objective.</div>
+        <div class="card-peek">R² 0.992 → 0.716 → −0.175<div class="peek-cap">auditor → pixels → latent</div></div>
         <div class="meta">
           <span class="tag">Research · Reliability</span>
           <span class="tag">Python · Physics sim</span>
@@ -281,19 +308,37 @@
         </div>
       </article>
 
-      <article class="card">
-        <div class="idx">004</div>
-        <h3>Biomechanical Simulation — PhD</h3>
-        <p class="desc">Doctoral research at the University of Reading: physics-based simulation of human upper-limb motion. Forward/inverse dynamics and muscle-driven models for tennis stroke mechanics, validated against the Robotics System Toolbox, with a 7-DOF rigid-body model confirmed in full 3D.</p>
-        <div class="metric">Centrifugal-lift equilibrium holds in 3D — <span>θ_eq = −6.26°</span>, within ~0.3° of the reduced model.</div>
-        <div class="meta">
-          <span class="tag">Research · Dynamics</span>
-          <span class="tag">MATLAB · MuJoCo · OpenSim</span>
-          <span class="tag status">● Ongoing</span>
-        </div>
+      <article class="card card--link">
+        <a class="card-wrap" href="#phd-biomech">
+          <div class="idx">004</div>
+          <h3>Biomechanical Simulation — PhD</h3>
+          <p class="desc">Doctoral research at the University of Reading: physics-based simulation of human upper-limb motion. Forward/inverse dynamics and muscle-driven models for tennis stroke mechanics, validated against the Robotics System Toolbox, with a 7-DOF rigid-body model confirmed in full 3D.</p>
+          <div class="metric">Centrifugal-lift equilibrium holds in 3D — <span>θ_eq = −6.26°</span>, within ~0.3° of the reduced model.</div>
+          <div class="card-peek">θ_eq = −6.26° · 3D model within ~0.3° of reduced</div>
+          <div class="meta">
+            <span class="tag">Research · Dynamics</span>
+            <span class="tag">MATLAB · MuJoCo · OpenSim</span>
+            <span class="tag status">● Ongoing</span>
+          </div>
+        </a>
       </article>
 
     </div>
+
+    <section id="dcam" class="case-study reveal">
+      <h3>DCAM — Dynamic Coating Application Module</h3>
+      <p>Lead engineer on an electro-mechanical module that applies protective coatings onto live power-grid conductors, deployed from a robotic base platform and UAV. Owned the full stack: embedded electronics, sensing, linear actuation and closed-loop control — concept through design-for-manufacture.</p>
+      <p><span style="color:var(--signal)">360°</span> uniform coating across a <span style="color:var(--signal)">300 m</span> live conductor span — field trial with Hydro-Québec.</p>
+      <a class="back" href="#work">← back to work</a>
+    </section>
+
+    <section id="phd-biomech" class="case-study reveal">
+      <h3>Biomechanical Simulation — PhD</h3>
+      <p>Doctoral research at the University of Reading: physics-based simulation of human upper-limb motion. Forward/inverse dynamics and muscle-driven models for tennis stroke mechanics, validated against the Robotics System Toolbox, with a 7-DOF rigid-body model confirmed in full 3D.</p>
+      <p>Centrifugal-lift equilibrium holds in 3D — <span style="color:var(--signal)">θ_eq = −6.26°</span>, within ~0.3° of the reduced model.</p>
+      <a class="back" href="#work">← back to work</a>
+    </section>
+
   </section>
 
   <!-- ===================== EXPERIENCE ===================== -->
@@ -383,6 +428,13 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // nav active state
+  (function(){
+    const nav=document.querySelector('.navlinks');if(!nav)return;
+    const links=[...nav.querySelectorAll('a[href^="#"]')];
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));});},{rootMargin:'-45% 0 -50% 0',threshold:0});
+    links.forEach(l=>{const el=document.getElementById(l.getAttribute('href').slice(1));if(el)obs.observe(el);});
+  })();
 </script>
 </body>
 </html>
