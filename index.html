@@ -259,7 +259,7 @@
   <section id="thread" class="sec reveal">
     <p class="mono">The thread</p>
     <p><strong>Every project here is one question asked at a different layer: can you verify what a machine actually did?</strong></p>
-    <p>In hardware, that meant closed-loop control and fault-tolerance on a <a href="#dcam">coating module trialled on live power lines</a> — where "probably working" isn't a category. In research, it's the <a href="/latent-audit">world-model latent audit</a>: a controlled measurement of whether a learned representation retains the physical consequence a verifier would need — it doesn't, and the failure is measurable. In agent infrastructure, it's the <a href="https://permissioning.ai" target="_blank" rel="noopener">Permissioning Protocol</a>: a machine-readable manifest for what an AI workload may do on systems it doesn't own, with every decision auditable.</p>
+    <p>In hardware, that meant mechanism design and actuation on a <a href="#dcam">coating module trialled on live power lines</a> — where "probably working" isn't a category. In research, it's the <a href="/latent-audit">world-model latent audit</a>: a controlled measurement of whether a learned representation retains the physical consequence a verifier would need — it doesn't, and the failure is measurable. In agent infrastructure, it's the <a href="https://permissioning.ai" target="_blank" rel="noopener">Permissioning Protocol</a>: a machine-readable manifest for what an AI workload may do on systems it doesn't own, with every decision auditable.</p>
     <p>Capability is compounding faster than our ability to check it. The bottleneck — in robotics, in learned models, in agent fleets — is verification. That's the problem I work on.</p>
   </section>
 
@@ -276,12 +276,13 @@
         <a class="card-wrap" href="#dcam">
           <div class="idx">001</div>
           <h3>DCAM — Dynamic Coating Application Module</h3>
-          <p class="desc">Lead engineer on an electro-mechanical module that applies protective coatings onto live power-grid conductors, deployed from a robotic base platform and UAV. Owned the full stack: embedded electronics, sensing, linear actuation and closed-loop control — concept through design-for-manufacture.</p>
+          <p class="desc">Senior Mechatronics Engineer leading the Dynamic Coating Application Module (DCAM) — an electro-mechanical module that applies protective coatings onto power-grid conductors, automating CAM connect/disconnect previously done by linemen. Deployed from base robotics platforms, then DCAM V2 optimised for UAV; pilot-run on a decommissioned line at Hydro-Québec via LineDrone — no line operators at height.</p>
+          <p class="desc">Designed the mechanism in Fusion 360: actuation and linkage including an over-centre configuration that locks the arms without actuator assistance — uniform coating as the module is pulled along the conductor. No onboard electronics; actuators driven open-loop by external PWM from the base robotics platform or UAV.</p>
           <div class="metric"><span>360°</span> uniform coating across a <span>300 m</span> live conductor span — field trial with Hydro-Québec.</div>
           <div class="card-peek">360° coating · 300 m live span · Hydro-Québec field trial</div>
           <div class="meta">
             <span class="tag">Physical</span>
-            <span class="tag">Embedded · Actuation · MATLAB/Simulink</span>
+            <span class="tag">Mechanism design · Actuation · DFM · MATLAB/Simulink</span>
             <span class="tag status">● Field-trialled · 2025</span>
           </div>
         </a>
@@ -322,7 +323,7 @@
         <a class="card-wrap" href="#phd-biomech">
           <div class="idx">004</div>
           <h3>Biomechanical Simulation — PhD</h3>
-          <p class="desc">Doctoral research at the University of Reading: physics-based simulation of human upper-limb motion. Forward/inverse dynamics and muscle-driven models for tennis stroke mechanics, validated against the Robotics System Toolbox, with a 7-DOF rigid-body model confirmed in full 3D.</p>
+          <p class="desc">PhD research on the biomechanics of human body motion. Current focus: upper-limb — a two-link arm model simulating single-arm motion to generate synthetic movement data, benchmarked against motion-capture recordings I captured with an Axis Neuron suit.</p>
           <div class="metric">Centrifugal-lift equilibrium holds in 3D — <span>θ_eq = −6.26°</span>, within ~0.3° of the reduced model.</div>
           <div class="card-peek">θ_eq = −6.26° · 3D model within ~0.3° of reduced</div>
           <div class="meta">
@@ -337,14 +338,15 @@
 
     <section id="dcam" class="case-study reveal">
       <h3>DCAM — Dynamic Coating Application Module</h3>
-      <p>Lead engineer on an electro-mechanical module that applies protective coatings onto live power-grid conductors, deployed from a robotic base platform and UAV. Owned the full stack: embedded electronics, sensing, linear actuation and closed-loop control — concept through design-for-manufacture.</p>
+      <p>Senior Mechatronics Engineer leading the Dynamic Coating Application Module (DCAM) — an electro-mechanical module that applies protective coatings onto power-grid conductors, automating CAM connect/disconnect previously done by linemen. Deployed from base robotics platforms, then DCAM V2 optimised for UAV; pilot-run on a decommissioned line at Hydro-Québec via LineDrone — no line operators at height.</p>
+      <p>Designed the mechanism in Fusion 360: actuation and linkage including an over-centre configuration that locks the arms without actuator assistance — uniform coating as the module is pulled along the conductor. No onboard electronics; actuators driven open-loop by external PWM from the base robotics platform or UAV.</p>
       <p><span style="color:var(--signal)">360°</span> uniform coating across a <span style="color:var(--signal)">300 m</span> live conductor span — field trial with Hydro-Québec.</p>
       <a class="back" href="#work">← back to work</a>
     </section>
 
     <section id="phd-biomech" class="case-study reveal">
       <h3>Biomechanical Simulation — PhD</h3>
-      <p>Doctoral research at the University of Reading: physics-based simulation of human upper-limb motion. Forward/inverse dynamics and muscle-driven models for tennis stroke mechanics, validated against the Robotics System Toolbox, with a 7-DOF rigid-body model confirmed in full 3D.</p>
+      <p>PhD research on the biomechanics of human body motion. Current focus: upper-limb — a two-link arm model simulating single-arm motion to generate synthetic movement data, benchmarked against motion-capture recordings I captured with an Axis Neuron suit.</p>
       <p>Centrifugal-lift equilibrium holds in 3D — <span style="color:var(--signal)">θ_eq = −6.26°</span>, within ~0.3° of the reduced model.</p>
       <a class="back" href="#work">← back to work</a>
     </section>
