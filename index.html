@@ -130,6 +130,7 @@
   .card-stretch{position:absolute;inset:0;z-index:1;border-radius:inherit}
   .card-stretch:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
   .card--link .ext,.card--link a.ext{position:relative;z-index:2}
+  .card img{max-width:100%;height:auto;display:block;margin:.6rem 0 1rem}
   .card-peek{margin-top:1rem;padding:.65rem .8rem;border:1px solid var(--line);background:color-mix(in srgb,var(--paper-2) 70%,#fff);
     font-family:'IBM Plex Mono',monospace;font-size:.7rem;line-height:1.45;color:var(--ink-soft);letter-spacing:.02em;white-space:pre-wrap}
   .card-peek .peek-cap{margin-top:.35rem;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);opacity:.85}
@@ -197,7 +198,7 @@
 
 <header class="bar">
   <div class="wrap bar-in">
-    <div class="brand"><span class="dot"></span>sinani.ai</div>
+    <div class="brand"><span class="dot"></span>Uljan Sinani</div>
     <nav class="navlinks">
       <a href="#thread">Work</a>
       <a href="#experience">Experience</a>
@@ -306,6 +307,7 @@
         <a class="card-stretch" href="/latent-audit" aria-label="World-Model Latent Audit — read note"></a>
         <div class="idx">003</div>
         <h3>World-Model Latent Audit <a class="ext" href="/latent-audit">Read note ↗</a></h3>
+        <img src="assets/latent_audit_r2.svg" alt="Bar chart: hidden-mass consequence recovery. Analytic auditor R²=0.992, 12-dim pixel probe R²=0.716, autoencoder latent difference R²=−0.175 — worse than predicting the mean." loading="lazy" width="800" height="500">
         <p class="desc">A controlled study of whether learned representations actually capture what causes outcomes. Built a contract-safe harness with stored splits and per-joint consequence targets in a physics simulation, then measured how well different latents recover causally-decisive variables.</p>
         <div class="metric">Reconstruction latents <span>underperform</span> matched PCA and random projections on recovering causal variables — the gap tracks the objective.</div>
         <div class="card-peek">R² 0.992 → 0.716 → −0.175<div class="peek-cap">auditor → pixels → latent</div></div>
@@ -420,7 +422,7 @@
 
 <footer>
   <div class="wrap foot-in">
-    <span class="mono">© <span id="yr"></span> Uljan Sinani · sinani.ai</span>
+    <span class="mono">© <span id="yr"></span> Uljan Sinani</span>
     <span style="display:flex;gap:1.4rem">
       <a href="mailto:uljan.sinani@gmail.com">Email</a>
       <a href="https://linkedin.com/in/uljansinani" target="_blank" rel="noopener">LinkedIn</a>

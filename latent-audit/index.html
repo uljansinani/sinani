@@ -75,6 +75,7 @@
   .article li strong{font-weight:600;color:var(--ink)}
   .article a{color:var(--signal);text-decoration:underline;text-underline-offset:3px}
   .article a:hover{color:var(--signal-deep)}
+  .article img{max-width:100%;height:auto;display:block;margin:0 0 2rem}
   .article em{font-style:italic}
   .article code{font-family:'IBM Plex Mono',monospace;font-size:.85em;background:color-mix(in srgb,#fff 40%,var(--paper));padding:.1em .35em;border-radius:2px}
 
@@ -94,7 +95,7 @@
 
 <header class="bar">
   <div class="wrap bar-in">
-    <a class="brand" href="/"><span class="dot"></span>sinani.ai</a>
+    <a class="brand" href="/"><span class="dot"></span>Uljan Sinani</a>
   </div>
 </header>
 
@@ -110,6 +111,8 @@
     </div>
 
     <p class="lead">That is the whole result. The rest of this note is what was measured, why the controls make the number hard to dismiss, and where the claim stops.</p>
+
+    <img src="/assets/latent_audit_r2.svg" alt="Bar chart: hidden-mass consequence recovery. Analytic auditor R²=0.992, 12-dim pixel probe R²=0.716, autoencoder latent difference R²=−0.175 — worse than predicting the mean." loading="lazy" width="800" height="500">
 
     <h2>Why it matters</h2>
 
@@ -193,7 +196,7 @@
 
 <footer>
   <div class="wrap foot-in">
-    <span class="mono">© <span id="yr"></span> Uljan Sinani · sinani.ai</span>
+    <span class="mono">© <span id="yr"></span> Uljan Sinani</span>
     <a href="/">← Home</a>
   </div>
 </footer>
