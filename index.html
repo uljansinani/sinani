@@ -112,6 +112,7 @@
     .domain:first-child{border-right:none;border-bottom:1px solid var(--line);padding-right:0}
     .domain:last-child{padding-left:0}
   }
+  #thread p:not(.mono){color:var(--ink-soft);font-size:.98rem;max-width:54ch;margin-bottom:1rem}
 
   /* ---------- section heads ---------- */
   .sec{padding:clamp(56px,8vw,96px) 0}
@@ -198,7 +199,7 @@
   <div class="wrap bar-in">
     <div class="brand"><span class="dot"></span>sinani.ai</div>
     <nav class="navlinks">
-      <a href="#work">Work</a>
+      <a href="#thread">Work</a>
       <a href="#experience">Experience</a>
       <a href="#next">Contact</a>
       <a href="/latent-audit">Notes</a>
@@ -215,7 +216,7 @@
     <h1 class="display">Building systems that have to <em>work</em> when it matters.</h1>
     <p class="lead">Senior mechatronics engineer with 6+ years taking electro-mechanical and robotic hardware from concept to the field — now bringing the same discipline of verification, control and fault-tolerance to AI and agent infrastructure.</p>
     <div class="cta">
-      <a class="btn primary" href="#work">View work ↓</a>
+      <a class="btn primary" href="#thread">View work ↓</a>
       <a class="btn ghost" href="mailto:uljan.sinani@gmail.com">Get in touch</a>
     </div>
 
@@ -252,6 +253,13 @@
       <h3>Verification for AI &amp; agents</h3>
       <p>Open standards and audit tooling for autonomous systems — permissioning, world-model fidelity, and the kind of kill-gated, evidence-first discipline that engineering reliability demands, applied to AI infrastructure.</p>
     </div>
+  </section>
+
+  <section id="thread" class="sec reveal">
+    <p class="mono">The thread</p>
+    <p><strong>Every project here is one question asked at a different layer: can you verify what a machine actually did?</strong></p>
+    <p>In hardware, that meant closed-loop control and fault-tolerance on a <a href="#dcam">coating module trialled on live power lines</a> — where "probably working" isn't a category. In research, it's the <a href="/latent-audit">world-model latent audit</a>: a controlled measurement of whether a learned representation retains the physical consequence a verifier would need — it doesn't, and the failure is measurable. In agent infrastructure, it's the <a href="https://permissioning.ai" target="_blank" rel="noopener">Permissioning Protocol</a>: a machine-readable manifest for what an AI workload may do on systems it doesn't own, with every decision auditable.</p>
+    <p>Capability is compounding faster than our ability to check it. The bottleneck — in robotics, in learned models, in agent fleets — is verification. That's the problem I work on.</p>
   </section>
 
   <!-- ===================== WORK ===================== -->
@@ -432,8 +440,10 @@
   (function(){
     const nav=document.querySelector('.navlinks');if(!nav)return;
     const links=[...nav.querySelectorAll('a[href^="#"]')];
-    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));});},{rootMargin:'-45% 0 -50% 0',threshold:0});
+    const workIds=['thread','work'];
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('active',workIds.includes(e.target.id)?l.getAttribute('href')==='#thread':l.getAttribute('href')==='#'+e.target.id));});},{rootMargin:'-45% 0 -50% 0',threshold:0});
     links.forEach(l=>{const el=document.getElementById(l.getAttribute('href').slice(1));if(el)obs.observe(el);});
+    const workEl=document.getElementById('work');if(workEl)obs.observe(workEl);
   })();
 </script>
 </body>
