@@ -76,7 +76,10 @@
 
   /* ---------- hero ---------- */
   .hero{padding:clamp(56px,9vw,120px) 0 clamp(40px,6vw,72px)}
-  .hero .eyebrow{margin-bottom:1.6rem}
+  .hero-intro{display:flex;align-items:center;gap:clamp(.85rem,3vw,1.25rem);margin-bottom:1.6rem}
+  .hero-intro .eyebrow{margin-bottom:0}
+  .headshot{width:clamp(96px,22vw,120px);height:clamp(96px,22vw,120px);object-fit:cover;flex-shrink:0;border-radius:50%;filter:grayscale(35%)}
+  @media(max-width:380px){.headshot{width:96px;height:96px}}
   .hero h1{font-family:'Space Grotesk',sans-serif;font-weight:600;
     font-size:clamp(2.4rem,6.4vw,4.5rem);line-height:1.02;letter-spacing:-.03em;max-width:16ch}
   .hero h1 em{font-style:normal;color:var(--signal)}
@@ -131,6 +134,11 @@
   .card-stretch:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
   .card--link .ext,.card--link a.ext{position:relative;z-index:2}
   .card img{max-width:100%;height:auto;display:block;margin:.6rem 0 1rem}
+  .fig-caption{display:flex;flex-direction:column;gap:.15rem;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;color:var(--ink-soft);margin:-.4rem 0 1rem;line-height:1.4}
+  .fig-credit{font-size:.62rem;letter-spacing:.05em}
+  .fig-credit a{color:var(--ink-soft);text-decoration:underline;text-underline-offset:2px}
+  .fig-credit a:hover{color:var(--signal)}
+  .card-fig img,.case-study .card-fig img{max-width:100%;height:auto;display:block;margin:.6rem 0 .35rem}
   .card-peek{margin-top:1rem;padding:.65rem .8rem;border:1px solid var(--line);background:color-mix(in srgb,var(--paper-2) 70%,#fff);
     font-family:'IBM Plex Mono',monospace;font-size:.7rem;line-height:1.45;color:var(--ink-soft);letter-spacing:.02em;white-space:pre-wrap}
   .card-peek .peek-cap{margin-top:.35rem;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);opacity:.85}
@@ -213,7 +221,11 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
-    <div class="eyebrow mono">Uljan Sinani · Mechatronics &amp; AI Systems · Leeds, UK</div>
+    <div class="hero-intro">
+      <img class="headshot" src="assets/uljan-sinani.jpg" alt="Uljan Sinani"
+        width="120" height="120" loading="eager">
+      <p class="eyebrow mono">Uljan Sinani · Mechatronics &amp; AI Systems · Leeds, UK</p>
+    </div>
     <h1 class="display">Building systems that have to <em>work</em> when it matters.</h1>
     <p class="lead">Senior mechatronics engineer with 6+ years taking electro-mechanical and robotic hardware from concept to the field — now bringing the same discipline of verification, control and fault-tolerance to AI and agent infrastructure.</p>
     <div class="cta">
@@ -273,19 +285,30 @@
     <div class="cards reveal">
 
       <article class="card card--link">
-        <a class="card-wrap" href="#dcam">
-          <div class="idx">001</div>
-          <h3>DCAM — Dynamic Coating Application Module</h3>
-          <p class="desc">Senior Mechatronics Engineer leading DCAM — an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone — no operators at height.</p>
-          <p class="desc">Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV — no onboard electronics. Took the module from concept to manufacture.</p>
-          <div class="metric"><span>360°</span> uniform coating across a <span>300 m</span> conductor span — field trial with Hydro-Québec.</div>
-          <div class="card-peek">360° coating · 300 m span · Hydro-Québec field trial</div>
-          <div class="meta">
-            <span class="tag">Physical</span>
-            <span class="tag">Mechanism design · Actuation · DFM · MATLAB/Simulink</span>
-            <span class="tag status">● Field-trialled · 2025</span>
-          </div>
-        </a>
+        <a class="card-stretch" href="#dcam" aria-label="DCAM — Dynamic Coating Application Module"></a>
+        <div class="idx">001</div>
+        <h3>DCAM — Dynamic Coating Application Module</h3>
+        <figure class="card-fig">
+          <picture>
+            <source srcset="assets/dcam-linedrone-hydroquebec.webp" type="image/webp">
+            <img src="assets/dcam-linedrone-hydroquebec.jpg"
+              alt="DCAM coating module mounted on a LineDrone UAV above a power-grid conductor during the Hydro-Québec field trial."
+              width="718" height="419" loading="lazy">
+          </picture>
+          <figcaption class="fig-caption">
+            <span class="fig-caption-desc">DCAM module (centre) on LineDrone — Hydro-Québec field trial</span>
+            <span class="fig-credit">Photo: <a class="ext" href="https://www.assetcool.com/post/assetcool-announces-strategic-partnership-with-hydro-qu%C3%A9bec-to-advance-successfully-piloted-drone-ba" target="_blank" rel="noopener">AssetCool Ltd.</a></span>
+          </figcaption>
+        </figure>
+        <p class="desc">Senior Mechatronics Engineer leading DCAM — an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone — no operators at height.</p>
+        <p class="desc">Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV — no onboard electronics. Took the module from concept to manufacture.</p>
+        <div class="metric"><span>360°</span> uniform coating across a <span>300 m</span> conductor span — field trial with Hydro-Québec.</div>
+        <div class="card-peek">360° coating · 300 m span · Hydro-Québec field trial</div>
+        <div class="meta">
+          <span class="tag">Physical</span>
+          <span class="tag">Mechanism design · Actuation · DFM · MATLAB/Simulink</span>
+          <span class="tag status">● Field-trialled · 2025</span>
+        </div>
       </article>
 
       <article class="card card--link">
@@ -338,6 +361,18 @@
 
     <section id="dcam" class="case-study reveal">
       <h3>DCAM — Dynamic Coating Application Module</h3>
+      <figure class="card-fig">
+        <picture>
+          <source srcset="assets/dcam-linedrone-hydroquebec.webp" type="image/webp">
+          <img src="assets/dcam-linedrone-hydroquebec.jpg"
+            alt="DCAM coating module mounted on a LineDrone UAV above a power-grid conductor during the Hydro-Québec field trial."
+            width="718" height="419" loading="lazy">
+        </picture>
+        <figcaption class="fig-caption">
+          <span class="fig-caption-desc">DCAM module (centre) on LineDrone — Hydro-Québec field trial</span>
+          <span class="fig-credit">Photo: <a href="https://www.assetcool.com/post/assetcool-announces-strategic-partnership-with-hydro-qu%C3%A9bec-to-advance-successfully-piloted-drone-ba" target="_blank" rel="noopener">AssetCool Ltd.</a></span>
+        </figcaption>
+      </figure>
       <p>Senior Mechatronics Engineer leading DCAM — an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone — no operators at height.</p>
       <p>Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV — no onboard electronics. Took the module from concept to manufacture.</p>
       <p><span style="color:var(--signal)">360°</span> uniform coating across a <span style="color:var(--signal)">300 m</span> conductor span — field trial with Hydro-Québec.</p>

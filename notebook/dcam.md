@@ -14,6 +14,10 @@ I designed the mechanism in Fusion 360, chose the actuation method, and linkage 
 
 No embedded electronics designed or built. No sensing. No closed-loop control — actuators driven open-loop by external PWM from BRP/UAV. "Full stack" claim not permitted. Concept unit required no electronics beyond the actuators' integrated drivers. Pilot conductor was decommissioned/de-energized — "live" / "live-line" / "energized conductor" claims not permitted.
 
+## Media (binding)
+
+- Field photo (`assets/dcam-linedrone-hydroquebec.jpg`): from AssetCool Ltd. public trial / press material — [Hydro-Québec partnership announcement, Jan 2026](https://www.assetcool.com/post/assetcool-announces-strategic-partnership-with-hydro-qu%C3%A9bec-to-advance-successfully-piloted-drone-ba). Published on sinani.ai with visible company credit; image is employer press material, not personal portfolio IP.
+
 ## Card copy (compressed from above)
 
 Paragraph 1: Senior Mechatronics Engineer leading DCAM — an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone — no operators at height.
