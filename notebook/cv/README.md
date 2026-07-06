@@ -28,21 +28,28 @@ Tailoring = pick a lens, optionally reorder 2–3 bullets in the lens file (not 
 
 Published PDF for sinani.ai: `assets/cv/Uljan_Sinani_CV.pdf` (typically Lens B).
 
-## Known inconsistencies (not yet resolved in spine)
+## Regenerate PDF
 
-- **Borg Automotive UK:** site/notebook use *Mechatronics Engineer (R&D)*; `spine.tex` lists *Mechanical Design Engineer*.
-- **DCAM scope:** lens bullets may claim sensing/embedded control; see `notebook/dcam.md` § Did NOT do (binding) before using those bullets verbatim.
+`pdflatex` is not installed in the Cursor environment. Regenerate locally:
+
+```bash
+cd notebook/cv && pdflatex cv_lensB_robotics.tex &&
+cp cv_lensB_robotics.pdf ../../assets/cv/Uljan_Sinani_CV.pdf
+```
+
+Then commit and push the updated PDF.
 
 ---
 
-## ACCURACY RULES (binding, from notebook/)
+## ACCURACY RULES (binding)
 
-- The Hydro-Québec DCAM trial ran on a DECOMMISSIONED line. The words "live", "live-line", "live grid", "live conductor", "energised/energized infrastructure" are BANNED in any career/CV/site content. Correct phrasing: "300 m conductor span on a decommissioned line", "utility grid infrastructure".
+- The Hydro-Québec DCAM trial ran on a **DECOMMISSIONED** line. Banned in prose: "live", "live-line", "live grid/conductor/power-grid", "energised", "energized". (CSS classes, code identifiers, status badges like "System · live", and quoted prohibitions in `notebook/dcam.md` are exempt.) Correct phrasing: "300 m conductor span on a decommissioned line", "utility grid infrastructure".
 - Canonical role titles are FIXED and never tailored:
-  - Senior Mechatronics Engineer (AssetCool, Leeds, May 2025–June 2026);
-  - Mechatronics Design Engineer (Federal-Mogul/Tenneco, Essex, 2023–2025);
+  - Senior Mechatronics Engineer (AssetCool, May 2025–June 2026);
+  - Mechatronics Design Engineer (Federal-Mogul/Tenneco, 2023–2025);
   - Mechatronics Engineer (R&D) (Borg Automotive UK, 2019–2020);
-  - Mechatronics Engineer – R&D (CPI, Belgium, 2018–2019);
-  - Junior Mechatronics Engineer (BORG Automotive A/S, Denmark, 2016–2017).
-- Job descriptions describe what was actually done. Never inflate, never invent metrics, never add tools not listed. When unsure, omit.
-- No new frameworks, dashboards, or extra pages beyond what is asked.
+  - Mechatronics Engineer (R&D) (CPI Belgium, 2018–2019);
+  - Junior Mechatronics Engineer (BORG Automotive A/S, 2016–2017).
+  No "Mechanical Design Engineer" or "Mechanical Engineer" title exists anywhere in this career. Ever.
+- DCAM scope per `notebook/dcam.md` "Did NOT do": no embedded electronics, no sensing, no closed-loop control, no "full stack" claims attributed to DCAM. Mechanical design/actuation/fluid delivery + **coordination** with electronics/software teams is the permitted framing.
+- Never invent claims, metrics, or evidence links. When unsure, omit.
