@@ -1,0 +1,40 @@
+% LENS B — Robotics / Automation roles
+% (Senior Mechatronics Engineer, Robotics Engineer, Automation Engineer)
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.6cm]{geometry}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\setlist[itemize]{leftmargin=*, itemsep=1pt, topsep=2pt, parsep=0pt}
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-4pt}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\pagestyle{empty}
+
+\newcommand{\Headline}{Senior Mechatronics \& Robotics Engineer}
+
+\newcommand{\Summary}{Senior Mechatronics Engineer with 6+ years' experience designing, building, and deploying automated electro-mechanical systems --- from closed-loop test rigs integrating motors, sensors, DAQ, and embedded controllers, to a field-deployed robotic coating-application system that turned a manual industrial process into a repeatable automated workflow. I work across the full stack of physical automation: mechanism and system design, device integration and I/O, control and scripting (Python, C++, ROS/ROS2), calibration and error handling in real operating environments, and validation through structured test campaigns to production-grade robustness. Currently completing a PhD in Biomedical Engineering / Collaborative Robotics (physics-based simulation of human movement --- MATLAB, OpenSim, MuJoCo).}
+
+\newcommand{\Competencies}{Robotic system design, build \& deployment \; $\cdot$ \; Device \& instrument integration (motors, actuators, ToF/current/voltage sensing, DAQ, embedded controllers) \; $\cdot$ \; Python \& C++ for device control \& workflow automation \; $\cdot$ \; ROS/ROS2 \; $\cdot$ \; Closed-loop control, calibration \& error handling \; $\cdot$ \; Translating manual processes into automated workflows \; $\cdot$ \; Physics-based simulation (MATLAB/Simulink, MuJoCo, OpenSim, Gazebo) \; $\cdot$ \; Motion planning, kinematics \& PID control \; $\cdot$ \; Test-campaign data logging \& analysis \; $\cdot$ \; Prototype-to-production}
+
+\newcommand{\AssetCoolBullets}{
+  \item Led the design, build, and deployment of the Dynamic Coating Application Module (DCAM) --- a robotic system automating the application of protective coatings onto power-grid conductors, carried on base robotic platforms --- taking it from proof-of-concept prototype to a robust, repeatable, field-deployed system.
+  \item Translated a manual coating process into an automated workflow in close collaboration with chemists and fluidics specialists: capturing process requirements (delivery rate, uniformity, coverage), designing the actuation and fluid-delivery system to meet them, and building in the sensing and controls needed for repeatable, in-spec application.
+  \item Integrated the module's devices end-to-end --- actuators, motor drivers, ToF/current/voltage sensing, and embedded control --- working with the electronics and software teams on I/O, device behaviour, calibration routines, and error handling for safe, reliable operation in a harsh outdoor environment; ran structured lab test campaigns across build iterations (3D-printed concept to CNC-machined production-intent), logging test and sensor data to verify performance against specification.
+}
+
+\newcommand{\EducationExtra}{}
+
+\newcommand{\Skills}{%
+\textbf{Robotics \& Controls:} Forward/inverse kinematics \& dynamics, motion planning, trajectory generation, PID control, closed-loop systems, calibration \& error handling\\
+\textbf{Software \& Scripting:} Python (NumPy), C++, MATLAB, ROS/ROS2, Git, real-time systems, data analysis, applied machine learning\\
+\textbf{Simulation \& Modelling:} MATLAB/Simulink, Robotics System Toolbox, MuJoCo, OpenSim, Gazebo, Unity, FEA, Motor-CAD (electromagnetic/thermal)\\
+\textbf{Device Integration \& Electronics:} Sensors and DAQ, ToF/current/voltage sensing, BLDC/FOC motor control, motor drivers, embedded controllers, CAN protocol work, signal conditioning, safety circuits, PCB collaboration\\
+\textbf{Mechanical \& Prototyping:} SolidWorks, Onshape, Fusion 360 (all Advanced); DFMA, tolerance analysis, precision mechanisms, rapid prototyping (3D printing, CNC, WaterJet)\\
+\textbf{Data \& Test:} Test-campaign design and execution, instrumented data logging, performance characterisation and validation against specification\\
+\textbf{Collaboration:} Cross-disciplinary work with scientists (chemistry, fluidics), electronics, software, and customer stakeholders; junior engineer mentoring; global/matrix teams}
+
+\newcommand{\Interests}{Open-source robotics, embedded systems projects, hardware prototyping, applied AI for physical systems, mentoring engineers.}
+
+\begin{document}
+\input{spine}
+\end{document}
