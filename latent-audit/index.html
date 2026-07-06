@@ -57,6 +57,10 @@
   .bar-in{display:flex;align-items:center;justify-content:space-between;height:60px}
   .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:.55rem}
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 3px color-mix(in srgb,var(--signal) 25%,transparent)}
+  .navlinks{display:flex;gap:1.6rem}
+  .navlinks a{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s,text-decoration-color .2s}
+  .navlinks a:hover,.navlinks a.active{color:var(--signal);text-decoration:underline;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,var(--signal) 55%,transparent)}
+  @media(max-width:680px){.navlinks{display:none}}
 
   .article{max-width:680px;padding:clamp(48px,8vw,88px) 0 clamp(56px,8vw,96px)}
   .article h1{font-family:'Space Grotesk',sans-serif;font-weight:600;
@@ -96,6 +100,14 @@
 <header class="bar">
   <div class="wrap bar-in">
     <a class="brand" href="/"><span class="dot"></span>Uljan Sinani</a>
+    <nav class="navlinks">
+      <a href="/#thread">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#next">Contact</a>
+      <a href="/latent-audit" class="active">Notes</a>
+      <a href="/hire">Hire</a>
+      <a href="https://github.com/usinani" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
   </div>
 </header>
 
