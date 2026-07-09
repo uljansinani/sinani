@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Uljan Sinani — Mechatronics & AI Systems',
+  description = 'Senior mechatronics engineer building reliable electro-mechanical, robotic and AI-infrastructure systems — concept to field.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content={description}>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="/"><span class="dot"></span>Uljan Sinani</a>
+    <nav class="navlinks">
+      <a href="#thread">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#next">Contact</a>
+      <a href="/latent-audit">Notes</a>
+      <a href="/hire">Hire</a>
+      <a href="https://github.com/usinani" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<slot />
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="mono">© <span id="yr"></span> Uljan Sinani</span>
+    <span style="display:flex;gap:1.4rem">
+      <a href="mailto:uljan.sinani@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/uljansinani" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/usinani" target="_blank" rel="noopener">GitHub</a>
+    </span>
+  </div>
+</footer>
+
+<script src="../scripts/main-behaviors.js"></script>
+</body>
+</html>

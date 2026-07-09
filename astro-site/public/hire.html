@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uljan Sinani — Senior Mechatronics Engineer</title>
+<meta name="description" content="Senior mechatronics engineer — electro-mechanical systems, robotics and precision design. Leeds, UK. Open to senior industry and research roles.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#ECEFF2;
+    --paper-2:#E4E8EC;
+    --ink:#14181D;
+    --ink-soft:#5A636C;
+    --line:#C7CFD7;
+    --line-soft:rgba(20,24,29,.06);
+    --signal:#E5431C;
+    --signal-deep:#B83414;
+    --maxw:1120px;
+    --gut:clamp(20px,5vw,64px);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      linear-gradient(var(--line-soft) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+    background-size:32px 32px;
+    background-position:-1px -1px;
+  }
+  ::selection{background:var(--signal);color:#fff}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .display{font-family:'Space Grotesk',sans-serif;line-height:1.04;letter-spacing:-.02em}
+
+  a{color:inherit;text-decoration:none}
+  a:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+  header.bar{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);
+    background:color-mix(in srgb,var(--paper) 78%,transparent);
+    border-bottom:1px solid var(--line)}
+  .bar-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:.55rem}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 3px color-mix(in srgb,var(--signal) 25%,transparent)}
+  .navlinks{display:flex;gap:1.6rem}
+  .navlinks a{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s,text-decoration-color .2s}
+  .navlinks a:hover,.navlinks a.active{color:var(--signal);text-decoration:underline;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,var(--signal) 55%,transparent)}
+  @media(max-width:680px){.navlinks{display:none}}
+
+  .hero{padding:clamp(56px,9vw,96px) 0 clamp(32px,5vw,56px)}
+  .hero h1{font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(2rem,5vw,3.2rem);line-height:1.06;letter-spacing:-.03em;max-width:22ch}
+  .hero p.subline{margin-top:1.2rem;max-width:58ch;font-size:clamp(1rem,2vw,1.12rem);color:var(--ink-soft)}
+
+  .sec{padding:clamp(40px,6vw,72px) 0}
+  .sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2rem}
+  .sec-head .num{font-family:'IBM Plex Mono',monospace;color:var(--signal);font-size:.8rem}
+  .sec-head h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-.02em}
+
+  .lenses{display:grid;gap:1.5rem}
+  .lens{padding-bottom:1.5rem;border-bottom:1px solid var(--line)}
+  .lens:last-child{border-bottom:none;padding-bottom:0}
+  .lens .label{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--signal-deep);margin-bottom:.5rem}
+  .lens p{color:var(--ink-soft);font-size:.97rem;max-width:62ch}
+
+  .cards{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .card{background:var(--paper);padding:clamp(24px,3.2vw,38px);position:relative;transition:background .2s,box-shadow .2s}
+  .card:hover{background:color-mix(in srgb,#fff 38%,var(--paper))}
+  .card--link{cursor:pointer}
+  .card--link:hover{box-shadow:inset 0 0 0 1px var(--signal)}
+  .card-stretch{position:absolute;inset:0;z-index:1;border-radius:inherit}
+  .card-stretch:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+  .card-wrap{display:block;color:inherit}
+  .card img{max-width:100%;height:auto;display:block;margin:.6rem 0 1rem}
+  .card-fig img{max-width:100%;height:auto;display:block;margin:.6rem 0 .35rem}
+  .card .idx{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--ink-soft)}
+  .card h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:-.01em;margin:.7rem 0 .6rem}
+  .card p.desc{color:var(--ink-soft);font-size:.97rem;max-width:60ch}
+  .card .meta{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.4rem .9rem;border-top:1px dashed var(--line);padding-top:1rem}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+  @media(min-width:760px){.cards{grid-template-columns:1fr 1fr}}
+
+  .next{border:1px solid var(--ink);padding:clamp(32px,5vw,56px);background:var(--ink);color:var(--paper);margin-top:clamp(40px,6vw,64px)}
+  .next .eyebrow{color:color-mix(in srgb,var(--paper) 60%,transparent)}
+  .next h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(1.4rem,3.5vw,2rem);letter-spacing:-.02em;margin:1rem 0 1rem}
+  .next p{color:color-mix(in srgb,var(--paper) 72%,transparent);max-width:56ch;margin-bottom:1rem}
+  .next p:last-of-type{margin-bottom:2rem}
+  .next a.cv-link{color:var(--signal);text-decoration:underline;text-underline-offset:3px}
+  .next a.cv-link:hover{color:#fff}
+  .cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+  .btn{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;
+    padding:.78rem 1.25rem;border:1px solid var(--paper);display:inline-flex;align-items:center;gap:.5rem;transition:.18s;color:var(--paper)}
+  .btn.primary{background:var(--signal);border-color:var(--signal);color:#fff}
+  .btn.primary:hover{background:#fff;border-color:#fff;color:var(--ink)}
+  .btn.ghost:hover{background:var(--paper);color:var(--ink)}
+
+  footer{border-top:1px solid var(--line);padding:2.4rem 0 3rem;margin-top:clamp(40px,6vw,64px)}
+  .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;align-items:center}
+  .foot-in a{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s}
+  .foot-in a:hover{color:var(--signal)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="/"><span class="dot"></span>Uljan Sinani</a>
+    <nav class="navlinks">
+      <a href="/#thread">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#next">Contact</a>
+      <a href="/latent-audit">Notes</a>
+      <a href="/hire" class="active">Hire</a>
+      <a href="https://github.com/usinani" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1 class="display">Uljan Sinani — Senior Mechatronics Engineer</h1>
+    <p class="subline">Electro-mechanical systems, robotics &amp; precision design · Leeds / UK · open to senior industry and research roles</p>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <span class="num">/ 01</span>
+      <h2 class="display">Three lenses</h2>
+    </div>
+    <div class="lenses">
+      <div class="lens">
+        <div class="label">Design</div>
+        <p>Precision electro-mechanical design for high-reliability industries — BS&nbsp;8888/GD&amp;T drawing packages, tolerance analysis, and concept-to-CNC-machined production. Recent work: AssetCool DCAM mechanism and Tenneco AMG programme cooling-plate redesign.</p>
+      </div>
+      <div class="lens">
+        <div class="label">Robotics / Automation</div>
+        <p>Closed-loop test rigs with device integration (motors, sensors, DAQ, embedded controllers) at Borg Automotive UK; field-deployed robotic coating system with mechanical design, actuation, and fluid delivery, coordinating with electronics and software teams — commissioned with Hydro-Québec on a decommissioned line. Python, C++, ROS2.</p>
+      </div>
+      <div class="lens">
+        <div class="label">Systems / Simulation</div>
+        <p>PhD (Biomedical Engineering / Collaborative Robotics, University of Reading) — physics-based upper-limb models, Hill-type muscles, MuJoCo. Plus the <a href="/latent-audit">World-Model Latent Audit</a> — auditing whether learned representations retain physical consequences.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="sec-head">
+      <span class="num">/ 02</span>
+      <h2 class="display">Selected work</h2>
+    </div>
+
+    <div class="cards">
+
+      <article class="card card--link">
+        <a class="card-stretch" href="/#dcam" aria-label="DCAM — Dynamic Coating Application Module"></a>
+        <div class="idx">001</div>
+        <h3>DCAM — Dynamic Coating Application Module</h3>
+        <figure class="card-fig">
+          <img src="assets/dcam-linedrone-hydroquebec-trials.png"
+            alt="DCAM coating module on LineDrone during the Hydro-Québec field trial on a decommissioned line."
+            width="1372" height="760" loading="lazy">
+        </figure>
+        <p class="desc">Electro-mechanical module automating coating deployment onto power-grid conductors — V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone.</p>
+        <div class="meta">
+          <span class="tag">Physical · Mechanism design</span>
+          <span class="tag">Field-trialled · 2025</span>
+        </div>
+      </article>
+
+      <article class="card card--link">
+        <a class="card-stretch" href="/latent-audit" aria-label="World-Model Latent Audit"></a>
+        <div class="idx">002</div>
+        <h3>World-Model Latent Audit</h3>
+        <img src="assets/latent_audit_r2.svg" alt="Bar chart: hidden-mass consequence recovery across auditor, pixel probe, and latent representations." loading="lazy" width="800" height="500">
+        <p class="desc">Controlled study of whether learned representations capture what causes outcomes — measured consequence recovery in a physics simulation harness.</p>
+        <div class="meta">
+          <span class="tag">Research · Reliability</span>
+          <span class="tag">Python · Physics sim</span>
+        </div>
+      </article>
+
+      <article class="card card--link">
+        <a class="card-wrap" href="/#phd-biomech">
+          <div class="idx">003</div>
+          <h3>Biomechanical Simulation — PhD</h3>
+          <p class="desc">Physics-based upper-limb motion — two- and three-link rigid-body models with Hill-type muscle actuators, benchmarked against motion-capture data (MATLAB, OpenSim, MuJoCo).</p>
+          <div class="meta">
+            <span class="tag">Research · Dynamics</span>
+            <span class="tag">Ongoing</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="next">
+      <div class="eyebrow mono">/ 03 — Contact</div>
+      <h2 class="display">Get in touch</h2>
+      <p>CV available on request — or <a class="cv-link" href="assets/cv/Uljan_Sinani_CV.pdf">download here</a>.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:uljan.sinani@gmail.com">uljan.sinani@gmail.com</a>
+        <a class="btn ghost" href="https://linkedin.com/in/uljansinani" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn ghost" href="https://github.com/USinani" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="mono">© <span id="yr"></span> Uljan Sinani</span>
+    <span style="display:flex;gap:1.4rem">
+      <a href="mailto:uljan.sinani@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/uljansinani" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/USinani" target="_blank" rel="noopener">GitHub</a>
+    </span>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

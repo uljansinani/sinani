@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Domains from '../components/Domains.astro';
+import Thread from '../components/Thread.astro';
+import WorkCards from '../components/WorkCards.astro';
+import CaseStudy from '../components/CaseStudy.astro';
+import Experience from '../components/Experience.astro';
+import Capabilities from '../components/Capabilities.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+
+<BaseLayout>
+  <main class="wrap">
+    <Hero />
+    <Domains />
+    <Thread />
+
+    <section class="sec" id="work">
+      <div class="sec-head reveal">
+        <span class="num">/ 03</span>
+        <h2 class="display">Selected work</h2>
+      </div>
+
+      <div class="cards reveal">
+        <WorkCards />
+      </div>
+
+      <CaseStudy />
+    </section>
+
+    <section class="sec" id="experience">
+      <div class="sec-head reveal">
+        <span class="num">/ 04</span>
+        <h2 class="display">Experience</h2>
+      </div>
+      <Experience />
+    </section>
+
+    <Capabilities />
+    <ContactSection />
+  </main>
+</BaseLayout>
