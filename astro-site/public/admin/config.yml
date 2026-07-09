@@ -1,0 +1,62 @@
+backend:
+  name: github
+  repo: uljansinani/sinani
+  branch: main
+  base_url: <WORKER_URL>
+
+media_folder: astro-site/public/assets/cms-uploads
+public_folder: /assets/cms-uploads
+
+collections:
+  - name: projects
+    label: Projects
+    folder: astro-site/src/content/projects
+    create: false
+    delete: false
+    fields:
+      - { label: Order, name: order, widget: number }
+      - { label: "Card ID", name: id_code, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Status, name: status, widget: string }
+      - { label: Domain, name: domain, widget: string }
+      - { label: Stack, name: stack, widget: list }
+      - { label: Metric, name: metric, widget: text, required: false, hint: "May include inline <span> tags for the orange highlight — keep them intact." }
+      - { label: "Card link (anchor or URL)", name: cardHref, widget: string }
+      - { label: "Card link opens in new tab", name: cardHrefExternal, widget: boolean, default: false }
+      - { label: "Card aria-label", name: cardAriaLabel, widget: string, required: false }
+      - { label: "Is case study", name: isCaseStudy, widget: boolean, default: false }
+      - { label: "Card peek text", name: cardPeek, widget: text, required: false }
+      - { label: "Card peek caption", name: cardPeekCaption, widget: string, required: false }
+      - { label: "Description paragraphs", name: desc, widget: list }
+      - { label: "Hero fig caption", name: heroFigCaption, widget: string, required: false }
+      - { label: "Hero image", name: heroImage, widget: image, required: false }
+      - { label: "Hero image alt text", name: heroImageAlt, widget: string, required: false }
+      - { label: "Hero image credit", name: heroImageCredit, widget: string, required: false }
+      - { label: "Hero image credit URL", name: heroImageCreditUrl, widget: string, required: false }
+      - { label: "Did NOT do (binding)", name: didNotDo, widget: text, required: false, hint: "Binding constraint text — do not remove content, only correct factual errors." }
+      - { label: "Scope notes (binding)", name: scopeNotes, widget: text, required: false, hint: "Binding constraint text — do not remove content, only correct factual errors." }
+      - { label: Body, name: body, widget: markdown, required: false }
+
+  - name: experience
+    label: Experience
+    folder: astro-site/src/content/experience
+    create: true
+    delete: true
+    fields:
+      - { label: Order, name: order, widget: number }
+      - { label: Role, name: role, widget: string }
+      - { label: "Org line", name: orgLine, widget: string }
+      - { label: "Date range", name: dateRange, widget: string }
+      - { label: Body, name: body, widget: markdown, required: false }
+
+  - name: notes
+    label: Notes
+    folder: astro-site/src/content/notes
+    create: true
+    delete: true
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: "Publish date", name: publishDate, widget: datetime }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Draft, name: draft, widget: boolean, default: true }
+      - { label: Body, name: body, widget: markdown }
