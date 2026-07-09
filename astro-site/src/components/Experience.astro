@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+
+const rows = (await getCollection('experience')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+function formatDateRange(dateRange: string) {
+  return dateRange.replace(/\u2013/g, '\u2014');
+}
+
+function formatOrg(
+  order: number,
+  org: string,
+  location: string,
+  summary: string,
+) {
+  if (!location && !summary) {
+    return org;
+  }
+  if (order === 4 || order === 5) {
+    return `${org}, ${location} — ${summary}`;
+  }
+  return `${org} — ${location} · ${summary}`;
+}
+---
+
+<div class="xp reveal">
+  {
+    rows.map((row) => (
+      <div class="xp-row">
+        <div class="yr">{formatDateRange(row.data.dateRange)}</div>
+        <div>
+          <div class="role">{row.data.role}</div>
+          <div class="org">
+            {formatOrg(row.data.order, row.data.org, row.data.location, row.data.summary)}
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</div>

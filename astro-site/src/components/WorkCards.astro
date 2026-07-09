@@ -1,0 +1,159 @@
+---
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+// Phase 1 omitted link from schema — in-page anchors aren't real URLs; reconstruct per id_code.
+const CARD_HREF: Record<
+  string,
+  { href: string; external?: boolean; ariaLabel?: string }
+> = {
+  '001': {
+    href: '#dcam',
+    ariaLabel: 'DCAM — Dynamic Coating Application Module',
+  },
+  '002': {
+    href: 'https://permissioning.ai',
+    external: true,
+    ariaLabel: 'Permissioning Protocol — permissioning.ai',
+  },
+  '003': {
+    href: '/latent-audit',
+    ariaLabel: 'World-Model Latent Audit — read note',
+  },
+  '004': { href: '#phd-biomech' },
+};
+
+const CARD_METRIC: Record<string, string> = {
+  '001':
+    '<span>360°</span> uniform coating across a <span>300 m</span> conductor span — field trial with Hydro-Québec.',
+  '002': 'Open standard · reference tooling · <span>public</span>.',
+  '003':
+    'Reconstruction latents <span>underperform</span> matched PCA and random projections on recovering causal variables — the gap tracks the objective.',
+  '004':
+    'Centrifugal-lift equilibrium holds in 3D — <span>θ_eq = −6.26°</span>, within ~0.3° of the reduced model.',
+};
+
+const CARD_DESC: Record<string, string[]> = {
+  '001': [
+    'Senior Mechatronics Engineer leading DCAM — an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone — no operators at height.',
+    "Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV — no onboard electronics. Took the module from concept to manufacture.",
+  ],
+  '002': [
+    'An open standard for AI agent permissions — "robots.txt for agent actions." A neutral, declarative way for systems to state what autonomous agents may and may not do, with a one-command quickstart reproducer.',
+  ],
+  '003': [
+    'A controlled study of whether learned representations actually capture what causes outcomes. Built a contract-safe harness with stored splits and per-joint consequence targets in a physics simulation, then measured how well different latents recover causally-decisive variables.',
+  ],
+  '004': [
+    'PhD research on the biomechanics of human body motion. Current focus: upper-limb — a two-link arm model simulating single-arm motion to generate synthetic movement data, benchmarked against motion-capture recordings I captured with an Axis Neuron suit.',
+  ],
+};
+
+function assetPath(path: string) {
+  return path.startsWith('/') ? path : `/${path}`;
+}
+---
+
+{
+  projects.map((project) => {
+    const { id_code, title, domain, stack, status, heroImage, heroImageAlt, heroImageCredit, heroImageCreditUrl } =
+      project.data;
+    const hrefInfo = CARD_HREF[id_code];
+    const descs = CARD_DESC[id_code] ?? [];
+    const metricHtml = CARD_METRIC[id_code] ?? '';
+    const isPhd = id_code === '004';
+    const isPermissioning = id_code === '002';
+    const isLatentAudit = id_code === '003';
+    const isDcam = id_code === '001';
+
+    if (isPhd) {
+      return (
+        <article class="card card--link">
+          <a class="card-wrap" href={hrefInfo.href}>
+            <div class="idx">{id_code}</div>
+            <h3>{title}</h3>
+            {descs.map((text) => (
+              <p class="desc">{text}</p>
+            ))}
+            <div class="metric" set:html={metricHtml} />
+            <div class="card-peek">θ_eq = −6.26° · 3D model within ~0.3° of reduced</div>
+            <div class="meta">
+              <span class="tag">{domain}</span>
+              <span class="tag">{stack.join(' · ')}</span>
+              <span class="tag status">● {status}</span>
+            </div>
+          </a>
+        </article>
+      );
+    }
+
+    return (
+      <article class="card card--link">
+        <a
+          class="card-stretch"
+          href={hrefInfo.href}
+          {...(hrefInfo.external ? { target: '_blank', rel: 'noopener' } : {})}
+          aria-label={hrefInfo.ariaLabel}
+        />
+        <div class="idx">{id_code}</div>
+        <h3>
+          {title}
+          {isPermissioning && (
+            <a class="ext" href="https://permissioning.ai" target="_blank" rel="noopener">
+              permissioning.ai ↗
+            </a>
+          )}
+          {isLatentAudit && (
+            <a class="ext" href="/latent-audit">Read note ↗</a>
+          )}
+        </h3>
+        {isDcam && heroImage && (
+          <figure class="card-fig">
+            <picture>
+              <source srcset={assetPath(heroImage.replace(/\.jpg$/, '.webp'))} type="image/webp" />
+              <img src={assetPath(heroImage)} alt={heroImageAlt} width="1372" height="760" loading="lazy" />
+            </picture>
+            <figcaption class="fig-caption">
+              <span class="fig-caption-desc">DCAM module (centre) on LineDrone — Hydro-Québec field trial</span>
+              <span class="fig-credit">
+                Photo:{' '}
+                <a class="ext" href={heroImageCreditUrl} target="_blank" rel="noopener">
+                  {heroImageCredit}
+                </a>
+              </span>
+            </figcaption>
+          </figure>
+        )}
+        {isLatentAudit && heroImage && (
+          <img src={assetPath(heroImage)} alt={heroImageAlt} loading="lazy" width="800" height="500" />
+        )}
+        {descs.map((text) => (
+          <p class="desc">{text}</p>
+        ))}
+        <div class="metric" set:html={metricHtml} />
+        {isDcam && (
+          <div class="card-peek">360° coating · 300 m span · Hydro-Québec field trial</div>
+        )}
+        {isPermissioning && (
+          <div class="card-peek">{`{ "version": "0.1",
+  "default": "deny",
+  "rules": [ ... ] }`}</div>
+        )}
+        {isLatentAudit && (
+          <div class="card-peek">
+            R² 0.992 → 0.716 → −0.175
+            <div class="peek-cap">auditor → pixels → latent</div>
+          </div>
+        )}
+        <div class="meta">
+          <span class="tag">{domain}</span>
+          <span class="tag">{stack.join(' · ')}</span>
+          <span class="tag status">● {status}</span>
+        </div>
+      </article>
+    );
+  })
+}
