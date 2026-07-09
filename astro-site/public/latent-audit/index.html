@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A physical consequence that survives to the encoder, then dies — Uljan Sinani</title>
+<meta name="description" content="In a controlled two-link-arm rig, a hidden-mass physical consequence that is well-posed in the analytic auditor (R² = 0.992) and recoverable from the rendered observation at matched 12-D capacity (R² = 0.716) is absent from the difference of a reconstruction-trained autoencoder's latents (R² = −0.175) — the representation a latent-space verifier would have to consume.">
+<meta property="og:title" content="A physical consequence that survives to the encoder, then dies — Uljan Sinani">
+<meta property="og:description" content="In a controlled two-link-arm rig, a hidden-mass physical consequence that is well-posed in the analytic auditor (R² = 0.992) and recoverable from the rendered observation at matched 12-D capacity (R² = 0.716) is absent from the difference of a reconstruction-trained autoencoder's latents (R² = −0.175) — the representation a latent-space verifier would have to consume.">
+<meta property="og:url" content="https://sinani.ai/latent-audit">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#ECEFF2;
+    --paper-2:#E4E8EC;
+    --ink:#14181D;
+    --ink-soft:#5A636C;
+    --line:#C7CFD7;
+    --line-soft:rgba(20,24,29,.06);
+    --signal:#E5431C;
+    --signal-deep:#B83414;
+    --maxw:1120px;
+    --gut:clamp(20px,5vw,64px);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      linear-gradient(var(--line-soft) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+    background-size:32px 32px;
+    background-position:-1px -1px;
+  }
+  ::selection{background:var(--signal);color:#fff}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .display{font-family:'Space Grotesk',sans-serif;line-height:1.04;letter-spacing:-.02em}
+
+  a{color:inherit;text-decoration:none}
+  a:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+  header.bar{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);
+    background:color-mix(in srgb,var(--paper) 78%,transparent);
+    border-bottom:1px solid var(--line)}
+  .bar-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:.55rem}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 3px color-mix(in srgb,var(--signal) 25%,transparent)}
+  .navlinks{display:flex;gap:1.6rem}
+  .navlinks a{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s,text-decoration-color .2s}
+  .navlinks a:hover,.navlinks a.active{color:var(--signal);text-decoration:underline;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,var(--signal) 55%,transparent)}
+  @media(max-width:680px){.navlinks{display:none}}
+
+  .article{max-width:680px;padding:clamp(48px,8vw,88px) 0 clamp(56px,8vw,96px)}
+  .article h1{font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.08;letter-spacing:-.025em;margin-bottom:1.2rem}
+  .article .byline{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:2rem}
+  .article .byline a{color:var(--signal);text-decoration:underline;text-underline-offset:3px}
+  .article .byline a:hover{color:var(--signal-deep)}
+  .article .claim{border-left:3px solid var(--signal);padding:1rem 0 1rem 1.25rem;margin:0 0 2rem;background:color-mix(in srgb,#fff 35%,var(--paper))}
+  .article .claim p{margin:0;font-size:.98rem;line-height:1.65}
+  .article h2{font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(1.2rem,2.8vw,1.55rem);letter-spacing:-.015em;margin:2.4rem 0 1rem}
+  .article p{margin-bottom:1.1rem;color:var(--ink);font-size:.98rem;line-height:1.65}
+  .article p.lead{color:var(--ink-soft);margin-bottom:2rem}
+  .article ul{margin:0 0 1.4rem 1.25rem}
+  .article li{margin-bottom:.75rem;font-size:.98rem;line-height:1.6}
+  .article li strong{font-weight:600;color:var(--ink)}
+  .article a{color:var(--signal);text-decoration:underline;text-underline-offset:3px}
+  .article a:hover{color:var(--signal-deep)}
+  .article img{max-width:100%;height:auto;display:block;margin:0 0 2rem}
+  .article em{font-style:italic}
+  .article code{font-family:'IBM Plex Mono',monospace;font-size:.85em;background:color-mix(in srgb,#fff 40%,var(--paper));padding:.1em .35em;border-radius:2px}
+
+  .article table{width:100%;border-collapse:collapse;margin:1.4rem 0 1.6rem;font-size:.92rem;border:1px solid var(--line)}
+  .article th,.article td{padding:.65rem .85rem;text-align:left;border:1px solid var(--line);vertical-align:top}
+  .article th{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);background:color-mix(in srgb,#fff 40%,var(--paper))}
+  .article td.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:.88rem;white-space:nowrap}
+  .article td.num strong{color:var(--ink);font-weight:600}
+
+  footer{border-top:1px solid var(--line);padding:2.4rem 0 3rem;margin-top:0}
+  .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;align-items:center}
+  .foot-in a{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s}
+  .foot-in a:hover{color:var(--signal)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="/"><span class="dot"></span>Uljan Sinani</a>
+    <nav class="navlinks">
+      <a href="/#thread">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#next">Contact</a>
+      <a href="/latent-audit" class="active">Notes</a>
+      <a href="/hire">Hire</a>
+      <a href="https://github.com/usinani" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="article">
+
+    <h1 class="display">A physical consequence that survives to the encoder, then dies: an audit of a reconstruction-trained world-model latent</h1>
+
+    <p class="byline"><em>Uljan Sinani · July 2026 · Code and full claim ledger: <a href="https://github.com/USinani/world-model-latent-audit">github.com/USinani/world-model-latent-audit</a></em></p>
+
+    <div class="claim">
+      <p><strong>Claim, in one line:</strong> In a controlled two-link-arm rig, a hidden-mass physical consequence that is well-posed in the analytic auditor (R² = 0.992) and recoverable from the rendered observation at matched 12-D capacity (R² = 0.716) is absent from the difference of a reconstruction-trained autoencoder's latents (R² = −0.175) — the representation a latent-space verifier would have to consume.</p>
+    </div>
+
+    <p class="lead">That is the whole result. The rest of this note is what was measured, why the controls make the number hard to dismiss, and where the claim stops.</p>
+
+    <img src="/assets/latent_audit_r2.svg" alt="Bar chart: hidden-mass consequence recovery. Analytic auditor R²=0.992, 12-dim pixel probe R²=0.716, autoencoder latent difference R²=−0.175 — worse than predicting the mean." loading="lazy" width="800" height="500">
+
+    <h2>Why it matters</h2>
+
+    <p>Self-verifying world models are frequently proposed as a route to auditable agents: if a model can flag its own physics violations, downstream control can trust it more. That promise rests on an unstated assumption — that the learned latent actually <em>contains</em> the physical consequence a verifier would check. If the latent drops it, no verifier built on top of that latent can recover it, no matter how clever the verifier is.</p>
+
+    <p>This experiment isolates exactly that assumption, in a setting small enough that every claim can be checked against ground-truth dynamics.</p>
+
+    <h2>The setup</h2>
+
+    <p>The rig is a two-link arm (Spong dynamics) with an exact analytic auditor. The intervention is a hidden mass change: two rollouts share the same observable input window and differ <em>only</em> in their physical consequence — the resulting window-scale acceleration, <code>qdd_window</code>. The arm is rendered to 48×48 grayscale stacked frame windows (frame interval 0.08 s, stride 8), an autoencoder is trained with a reconstruction objective, and a latent dynamics ensemble is trained on top.</p>
+
+    <p>The question: does the clean-vs-heavy consequence delta survive into the latent? Concretely, does <code>Δz_next</code> predict <code>Δqdd_window</code> on matched pairs?</p>
+
+    <figure>
+      <img src="/assets/latent-audit-pipeline.png" alt="Audit pipeline: hidden-mass intervention on a two-link arm; analytic auditor R2 0.992, pixel-delta probe R2 0.716, autoencoder latent difference R2 -0.175." loading="lazy" width="1600" height="900">
+      <figcaption>One hidden-mass intervention on a two-link arm, read out three ways: analytic auditor, pixel-delta probe, autoencoder latent difference.</figcaption>
+    </figure>
+
+    <h2>Controls, and why they are non-negotiable</h2>
+
+    <p>A negative result in latent space is cheap to produce and easy to fake by accident. The pipeline is gated so that each failure mode that would counterfeit the result is ruled out <em>before</em> the headline number is read:</p>
+
+    <ul>
+      <li><strong>No input leak (Gate B).</strong> Input-only detectors (latent density and ensemble disagreement) cannot separate clean from shifted rollouts: AUROC 0.500 / 0.500, matched-pair Δ = 0. The two conditions genuinely share the input; anything the latent distinguishes must come from the consequence, not the cause leaking in.</li>
+      <li><strong>The AE is competent (recon gate).</strong> Reconstruction error is 3.6× better than a mean-frame baseline, and the shifted condition reconstructs as well as clean (ratio 0.99). The latent is not simply broken.</li>
+      <li><strong>Capacity-matched control.</strong> The raw observation is reduced to 12 PCA components — the same dimensionality as the latent — and probed with the identical 3-seed nonlinear MLP probe on the identical matched pairs. Without this, "pixels beat the latent" is a capacity artifact, not a finding. With it, the comparison is like-for-like: <code>R²(Δraw_obs_next → Δqdd_window) = 0.716</code> at PCA-12, even though those 12 components retain only ~33% of the pixel-delta variance. A 12-D bottleneck <em>can</em> keep the consequence; this one didn't.</li>
+      <li><strong>Paired nuisance.</strong> Clean and heavy renders share a per-pair jitter seed, so render noise cancels in the difference; a non-jittered diagnostic agrees (−0.162).</li>
+      <li><strong>Pre-registered thresholds, read once.</strong> The 0.60 Gate A bar and the 0.30 delta bar were fixed before the terminal run and never softened; per the pre-registered rule, downstream detector tables were not interpreted once Gate A failed.</li>
+    </ul>
+
+    <h2>The numbers</h2>
+
+    <p>Same matched pairs, same target, same probe, capacity matched at 12 dimensions:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>stage</th>
+          <th>probe</th>
+          <th>R² → <code>Δqdd_window</code></th>
+          <th>reading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>auditor</td>
+          <td><code>Δtrue_pose_window</code></td>
+          <td class="num"><strong>0.992</strong></td>
+          <td>consequence is well-posed</td>
+        </tr>
+        <tr>
+          <td>observation</td>
+          <td><code>Δraw_obs_next</code> (PCA-12)</td>
+          <td class="num"><strong>0.716</strong></td>
+          <td>recoverable from rendered pixels at matched capacity</td>
+        </tr>
+        <tr>
+          <td>latent</td>
+          <td><code>Δz_next</code></td>
+          <td class="num"><strong>−0.175</strong></td>
+          <td>absent from the learned latent difference</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The consequence survives to the encoder and dies inside it (<code>pixel_minus_latent_gap = 0.891</code>). The negative R² means the latent difference predicts the consequence delta <em>worse than its own mean</em>. The static gate agrees: <code>z_next + a → qdd_window</code> pools at 0.425 against a 0.60 bar. Formal verdict of the run: <strong>VOID-FIDELITY</strong> — the latent-space verifier comparison is unreadable, because the signal it needs never reached the latent.</p>
+
+    <h2>Where the claim stops</h2>
+
+    <p>This is <strong>not</strong> a claim that learned latents cannot support physics auditability, and <strong>not</strong> a claim that reconstruction objectives discard physical consequences in general. It is bounded to this reconstruction-trained AE stack and this observation/window family. The bounded mechanism hypothesis — for this stack only — is that the reconstruction objective allocated limited latent capacity to visually salient structure rather than to the low-variance, audit-relevant consequence delta. Testing whether that generalises across objectives is precisely what a transfer matrix would do, and it has not been run. Three-seed probe variance is small (±0.016 on the delta gate) but this remains a single environment and a single architecture family.</p>
+
+    <h2>Relation to prior work</h2>
+
+    <p>Sobal et al. (2022, <a href="https://arxiv.org/abs/2211.10831">arXiv:2211.10831</a>) compared reconstruction-trained generative world models against JEPA objectives in a moving-dot environment and probed for the dot's <em>input-visible</em> state under distractor noise, finding regime-dependent wins for each objective. Same family of question — what does the latent keep? — but a distinct instantiation: here the input is held fixed by construction, the probed quantity is a <em>hidden-cause physical consequence</em> rather than visible state, and the loss is localised along an auditor → observation → latent chain rather than compared across objectives. Causal-JEPA (Nam et al. 2026, <a href="https://arxiv.org/abs/2602.11389">arXiv:2602.11389</a>) occupies the intervention-aware training direction — object-level latent masking to force interaction-dependent prediction — which is one candidate answer to the failure documented here, not an alternative measurement of it. The natural next experiment is to swap the representation objective (predictive / JEPA-style) into this exact rig and re-read the same delta gate; that changes the question, and is deliberately out of scope for this closeout.</p>
+
+    <h2>The so-what</h2>
+
+    <p>If you are building an agent system whose safety story includes "the world model checks its own physics," that story is only as good as the latent's retention of audit-relevant consequences — and retention is measurable, cheaply, before you build the verifier. The chain probe above (<code>oracle → capacity-matched observation → latent</code>, on matched hidden-cause pairs) is a ~zero-dependency numpy harness you can point at your own stack. The repository is <a href="https://github.com/USinani/world-model-latent-audit">intended to be attacked</a>: if you can find the confound that breaks the 0.992 → 0.716 → −0.175 chain, the critique issue template is waiting.</p>
+
+    <hr style="border:none;border-top:1px solid var(--line);margin:2.5rem 0 1.5rem">
+
+    <p class="byline" style="margin-bottom:0"><em>This is the research face of a broader thread — verification of machine cognition — that also covers agent permissioning (<a href="https://permissioning.ai">permissioning.ai</a>) and evidence-adjudication tooling. Every number above traces to a committed run (<code>results/20260619_193900_33faabb_latent/metrics.json</code>; addendum commits <code>a3c0221</code>, <code>d54b9a6</code>).</em></p>
+
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="mono">© <span id="yr"></span> Uljan Sinani</span>
+    <a href="/">← Home</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
