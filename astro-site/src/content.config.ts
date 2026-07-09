@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const projects = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: z.object({
     order: z.number(),
     id_code: z.string(),          // e.g. "001" — the index shown on the card
@@ -22,7 +23,7 @@ const projects = defineCollection({
 });
 
 const experience = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/experience' }),
   schema: z.object({
     order: z.number(),
     role: z.string(),
@@ -34,7 +35,7 @@ const experience = defineCollection({
 });
 
 const notes = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/notes' }),
   schema: z.object({
     title: z.string(),
     publishDate: z.date(),
