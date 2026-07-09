@@ -12,12 +12,12 @@ const projects = defineCollection({
     domain: z.string(),           // e.g. "Robotics / Field hardware"
     stack: z.array(z.string()).default([]),
     metric: z.string().optional(),// the highlighted stat line on the card
-    link: z.string().url().optional(),
+    link: z.url().optional(),
     isCaseStudy: z.boolean().default(false),
     heroImage: z.string().optional(),
     heroImageAlt: z.string().optional(),
     heroImageCredit: z.string().optional(),
-    heroImageCreditUrl: z.string().url().optional(),
+    heroImageCreditUrl: z.url().optional(),
     didNotDo: z.string().optional(),   // binding "Did NOT do" section, verbatim
     scopeNotes: z.string().optional(), // binding "Scope notes" section, verbatim
   }),
