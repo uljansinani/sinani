@@ -4,23 +4,44 @@ import { getCollection } from 'astro:content';
 const caseStudies = (await getCollection('projects'))
   .filter((p) => p.data.isCaseStudy)
   .sort((a, b) => a.data.order - b.data.order);
+
+function caseStudyMetricHtml(metric: string) {
+  return metric.replace(/<span>/g, '<span style="color:var(--signal)">');
+}
+
+function assetPath(path: string) {
+  return path.startsWith('/') ? path : `/${path}`;
+}
+
+function sectionId(cardHref: string) {
+  return cardHref.startsWith('#') ? cardHref.slice(1) : cardHref;
+}
 ---
 
 {
   caseStudies.map((project) => {
-    const { id_code, title, heroImageAlt, heroImageCredit, heroImageCreditUrl } =
-      project.data;
-    const isDcam = id_code === '001';
+    const {
+      cardHref,
+      title,
+      desc,
+      metric,
+      heroImage,
+      heroImageAlt,
+      heroImageCredit,
+      heroImageCreditUrl,
+      heroFigCaption,
+    } = project.data;
+    const showHeroFigure = heroImage?.endsWith('.jpg');
 
-    if (isDcam) {
-      return (
-        <section id="dcam" class="case-study reveal">
-          <h3>{title}</h3>
+    return (
+      <section id={sectionId(cardHref)} class="case-study reveal">
+        <h3>{title}</h3>
+        {showHeroFigure && heroImage && (
           <figure class="card-fig">
             <picture>
-              <source srcset="/assets/dcam-linedrone-hydroquebec.webp" type="image/webp" />
+              <source srcset={assetPath(heroImage.replace(/\.jpg$/, '.webp'))} type="image/webp" />
               <img
-                src="/assets/dcam-linedrone-hydroquebec.jpg"
+                src={assetPath(heroImage)}
                 alt={heroImageAlt}
                 width="1372"
                 height="760"
@@ -28,7 +49,7 @@ const caseStudies = (await getCollection('projects'))
               />
             </picture>
             <figcaption class="fig-caption">
-              <span class="fig-caption-desc">DCAM module (centre) on LineDrone — Hydro-Québec field trial</span>
+              {heroFigCaption && <span class="fig-caption-desc">{heroFigCaption}</span>}
               <span class="fig-credit">
                 Photo:{' '}
                 <a href={heroImageCreditUrl} target="_blank" rel="noopener">
@@ -37,31 +58,11 @@ const caseStudies = (await getCollection('projects'))
               </span>
             </figcaption>
           </figure>
-          <p>
-            Senior Mechatronics Engineer leading DCAM — an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone — no operators at height.
-          </p>
-          <p>
-            Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV — no onboard electronics. Took the module from concept to manufacture.
-          </p>
-          <p>
-            <span style="color:var(--signal)">360°</span> uniform coating across a{' '}
-            <span style="color:var(--signal)">300 m</span> conductor span — field trial with Hydro-Québec.
-          </p>
-          <a class="back" href="#work">← back to work</a>
-        </section>
-      );
-    }
-
-    return (
-      <section id="phd-biomech" class="case-study reveal">
-        <h3>{title}</h3>
-        <p>
-          PhD research on the biomechanics of human body motion. Current focus: upper-limb — a two-link arm model simulating single-arm motion to generate synthetic movement data, benchmarked against motion-capture recordings I captured with an Axis Neuron suit.
-        </p>
-        <p>
-          Centrifugal-lift equilibrium holds in 3D —{' '}
-          <span style="color:var(--signal)">θ_eq = −6.26°</span>, within ~0.3° of the reduced model.
-        </p>
+        )}
+        {desc.map((text) => (
+          <p>{text}</p>
+        ))}
+        {metric && <p set:html={caseStudyMetricHtml(metric)} />}
         <a class="back" href="#work">← back to work</a>
       </section>
     );

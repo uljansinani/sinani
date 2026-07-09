@@ -11,7 +11,15 @@ const projects = defineCollection({
     status: z.string(),           // e.g. "Deployed", "In progress"
     domain: z.string(),           // e.g. "Robotics / Field hardware"
     stack: z.array(z.string()).default([]),
-    metric: z.string().optional(),// the highlighted stat line on the card
+    // May contain inline <span> tags for the orange highlight on cards
+    metric: z.string().optional(),
+    desc: z.array(z.string()).default([]),
+    cardPeek: z.string().optional(),
+    cardPeekCaption: z.string().optional(),
+    cardHref: z.string(),
+    cardHrefExternal: z.boolean().default(false),
+    cardAriaLabel: z.string().optional(),
+    heroFigCaption: z.string().optional(),
     link: z.url().optional(),
     isCaseStudy: z.boolean().default(false),
     heroImage: z.string().optional(),
@@ -28,10 +36,8 @@ const experience = defineCollection({
   schema: z.object({
     order: z.number(),
     role: z.string(),
-    org: z.string(),
-    location: z.string(),
+    orgLine: z.string(),
     dateRange: z.string(),
-    summary: z.string(),
   }),
 });
 
