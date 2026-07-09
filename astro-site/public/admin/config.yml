@@ -2,7 +2,7 @@ backend:
   name: github
   repo: uljansinani/sinani
   branch: main
-  base_url: <WORKER_URL>
+  base_url: https://sveltia-cms-auth.uljan-sinani.workers.dev
 
 media_folder: astro-site/public/assets/cms-uploads
 public_folder: /assets/cms-uploads
