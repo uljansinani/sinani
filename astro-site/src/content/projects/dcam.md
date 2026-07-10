@@ -1,24 +1,28 @@
 ---
 order: 1
-id_code: "001"
-title: "DCAM — Dynamic Coating Application Module"
-status: "Field-trialled · 2025"
-domain: "Physical"
-stack: ["Mechanism design", "Actuation", "DFM", "MATLAB/Simulink"]
-metric: '<span>360°</span> uniform coating across a <span>300 m</span> conductor span — field trial with Hydro-Québec.'
-desc:
-  - "Senior Mechatronics Engineer leading DCAM — an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone — no operators at height."
-  - "Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV — no onboard electronics. Took the module from concept to manufacture."
-cardHref: "#dcam"
+id_code: '001'
+title: DCAM — Dynamic Coating Application Module
+status: Field-trialled · June 2025
+domain: Physical
+stack:
+  - Mechanism design
+  - Actuation
+  - DFM
+  - MATLAB/Simulink
+metric: <span>360°</span> uniform coating across a <span>300 m</span> conductor span — field trial with Hydro-Québec.
+cardHref: '#dcam'
 cardHrefExternal: false
-cardPeek: "360° coating · 300 m span · Hydro-Québec field trial"
-heroFigCaption: "DCAM module (centre) on LineDrone — Hydro-Québec field trial"
 isCaseStudy: true
-heroImage: "assets/dcam-linedrone-hydroquebec.jpg"
-heroImageAlt: "DCAM coating module mounted on a LineDrone UAV above a power-grid conductor during the Hydro-Québec field trial."
-heroImageCredit: "AssetCool Ltd."
-heroImageCreditUrl: "https://www.assetcool.com/post/assetcool-announces-strategic-partnership-with-hydro-qu%C3%A9bec-to-advance-successfully-piloted-drone-ba"
-didNotDo: "No embedded electronics designed or built. No sensing. No closed-loop control — actuators driven open-loop by external PWM from BRP/UAV. \"Full stack\" claim not permitted. Concept unit required no electronics beyond the actuators' integrated drivers. Pilot conductor was decommissioned/de-energized — \"live\" / \"live-line\" / \"energized conductor\" claims not permitted."
+cardPeek: 360° coating · 300 m span · Hydro-Québec field trial
+desc:
+  - Senior Mechatronics Engineer leading DCAM — an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone — no operators at height.
+  - "Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV — no onboard electronics. Took the module from concept to manufacture."
+heroFigCaption: DCAM module (centre) on LineDrone — Hydro-Québec field trial
+heroImage: assets/dcam-linedrone-hydroquebec.jpg
+heroImageAlt: DCAM coating module mounted on a LineDrone UAV above a power-grid conductor during the Hydro-Québec field trial.
+heroImageCredit: AssetCool Ltd.
+heroImageCreditUrl: https://www.assetcool.com/post/assetcool-announces-strategic-partnership-with-hydro-qu%C3%A9bec-to-advance-successfully-piloted-drone-ba
+didNotDo: No embedded electronics designed or built. No sensing. No closed-loop control — actuators driven open-loop by external PWM from BRP/UAV. "Full stack" claim not permitted. Concept unit required no electronics beyond the actuators' integrated drivers. Pilot conductor was decommissioned/de-energized — "live" / "live-line" / "energized conductor" claims not permitted.
 ---
 
 ## Role and deployment
