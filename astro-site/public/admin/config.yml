@@ -4,6 +4,9 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.uljan-sinani.workers.dev
 
+output:
+  omit_empty_optional_fields: true
+
 media_folder: astro-site/public/assets/cms-uploads
 public_folder: /assets/cms-uploads
 
