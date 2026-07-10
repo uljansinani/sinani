@@ -14,7 +14,7 @@ collections:
   - name: projects
     label: Projects
     folder: astro-site/src/content/projects
-    create: false
+    create: true
     delete: false
     fields:
       - { label: Order, name: order, widget: number }
