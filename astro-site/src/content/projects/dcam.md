@@ -15,8 +15,8 @@ cardHrefExternal: false
 isCaseStudy: false
 cardPeek: 360° coating · 300 m span · Hydro-Québec field trial
 desc:
-  - Senior Mechatronics Engineer leading Dyamic Coating Application Module (DCAM) — an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone — no operators at height.
-  - "Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV — no onboard electronics. Took the module from concept to manufacture."
+  - Senior Mechatronics Engineer leading Dyamic Coating Application Module (DCAM) - an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone - no operators at height.
+  - "Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV - no onboard electronics. Took the module from concept to manufacture."
 heroFigCaption: DCAM module (centre) on LineDrone — Hydro-Québec field trial
 heroImage: assets/dcam-linedrone-hydroquebec.jpg
 heroImageAlt: DCAM coating module integrated on a LineDrone UAV above a power-grid conductor during the Hydro-Québec field trial.
@@ -29,7 +29,7 @@ didNotDo: No embedded electronics designed or built. No sensing. No closed-loop 
 
 Senior Mechatronics Engineer leading the Dynamic Coating Application Module (DCAM) project. The DCAM was an Electro-Mechanical module that applies protective coatings onto power-grid conductors. Its purpose was to automate the work - previously done by lineman - of manually connecting and disconnecting the Coating Application Module (CAM), thus automating its deployment remotely from the base station.
 
-The automation of the Coating Module deployment via DCAM was initially done for the base robotics platforms (at our test facility), and later on the DCAM V1 moved to V2 whereby it was optimised to be used for UAV deployed, which was tested and pilot-run in Canada in a decommissioned line at Hydro-Québec Canada, with no line operators at height involved during this deployment of the module via LineDrone.
+The automation of the Coating Module deployment via DCAM was initially done for the base robotics platforms (at our test facility), and later on the DCAM V1 moved to V2 whereby it was optimised to be used for UAV deployed, which was tested and pilot-run in Canada in a decommissioned line at [Hydro-Québec Canada](https://www.linkedin.com/posts/capacity-data-transmission-ugcPost-7422668709598613504-Ro83/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLEWekByy99-BLARnTSbGr6kKQ8UES0EWI), with no line operators at height involved during this deployment of the module via LineDrone.
 
 ## Mechanism
 
