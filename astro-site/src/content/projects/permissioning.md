@@ -26,7 +26,7 @@ desc:
   - '- It openly states that v0.1 is not a production security boundary.'
   - '- It distinguishes declared conditions from conditions actually enforced.'
   - '- It invites criticism rather than implying standard adoption.'
-  - The public site currently does especially well on **problem clarity**, **proof over promise**, **quick inspection**, and **honest status**. The repository also specifies design principles, a manifest, rule effects, action designation, enforcement layers, open questions, and explicit non-goals. citeturn903288view0turn169706view0
+  - The public site currently does especially well on **problem clarity**, **proof over promise**, **quick inspection**, and **honest status**. The repository also specifies design principles, a manifest, rule effects, action designation, enforcement layers, open questions, and explicit non-goals.
 link: https://permissioning.ai
 ---
 
