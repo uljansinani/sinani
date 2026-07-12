@@ -14,9 +14,10 @@ cardHref: '#DCAM #Dynamic Coating #Application #Module'
 cardHrefExternal: false
 isCaseStudy: false
 cardPeek: 360° coating · 300 m span · Hydro-Québec field trial
+cardPeekCaption: Senior Mechatronics Engineer (Project Lead)
 desc:
-  - Senior Mechatronics Engineer leading Dyamic Coating Application Module (DCAM) - an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 deployed from a robotic base platform at the test facility; V2 optimised for UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone - no operators at height.
-  - "Designed the mechanism in Fusion 360: an over-centre linkage that locks the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV - no onboard electronics. Took the module from concept to manufacture."
+  - Led the development of Dyamic Coating Application Module (DCAM) - an electro-mechanical module that automates the deployment of a coating application module onto power-grid conductors, replacing the manual connect/disconnect work previously done by linemen at height. V1 concept deployed for the Base Robotic Platforms (BRP) at the test facility; V2 optimised for the UAV deployment and pilot-run on a decommissioned Hydro-Québec line via LineDrone - no operators at height.
+  - "Designed the mechanism in Fusion 360: Features developed consisted of: an over-centre Mechanicsm aimed at locking the module's arms closed without actuator assistance, retaining full clamping force as the module is pulled along the conductor. Actuation by Actuonix L12 linear actuators with integrated drivers, driven open-loop by external PWM from the platform or UAV - no onboard electronics. Took the module from concept to manufacture."
 heroFigCaption: DCAM module (centre) on LineDrone — Hydro-Québec field trial
 heroImage: assets/dcam-linedrone-hydroquebec.jpg
 heroImageAlt: DCAM coating module integrated on a LineDrone UAV above a power-grid conductor during the Hydro-Québec field trial.
@@ -37,7 +38,7 @@ I designed the mechanism in Fusion 360, chose the actuation method and linkage c
 
 ## Media (binding)
 
-- Field photo (`assets/dcam-linedrone-hydroquebec.jpg`): from AssetCool Ltd. public trial / press material — [Hydro-Québec partnership announcement, Jan 2026](https://www.assetcool.com/post/assetcool-announces-strategic-partnership-with-hydro-qu%C3%A9bec-to-advance-successfully-piloted-drone-ba). Published on sinani.ai with visible company credit; image is employer press material, not personal portfolio IP.
+- Field photo (`assets/dcam-linedrone-hydroquebec.jpg`): from AssetCool Ltd. public trial / press material — Hydro-Québec partnership announcement, Jan 2026. Published on sinani.ai with visible company credit; image is employer press material, not personal portfolio IP.
 
 ## Card copy (compressed from above)
 
